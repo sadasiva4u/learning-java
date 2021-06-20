@@ -18,11 +18,8 @@ public class TestTrees {
 // Check if element present
 // Delete a element
 
-        // Root
         binaryTree.addElement(6);
-        // Root -> Root.left=3
         binaryTree.addElement(3);
-
         binaryTree.addElement(9);
         binaryTree.addElement(4);
         binaryTree.addElement(2);
@@ -30,15 +27,6 @@ public class TestTrees {
         binaryTree.addElement(10);
         binaryTree.addElement(1);
         binaryTree.addElement(5);
-
-
-
-        /*
-                    6//root
-            3               9
-       2       4       7       10
-   1
-                    */
 
 
 /*
@@ -53,40 +41,30 @@ PostOrder -> [Left -> Right -> Node]
 
         System.out.println();
 
+        System.out.println("Print By Level");
         binaryTree.printByLevel();
+        System.out.println("*****************************************************");
 
         System.out.println(binaryTree.isPresent(4));
         System.out.println(binaryTree.isPresent(8));
 
-        /* Before Deleting
-                    6//root
-            3               9
-       2       4        7       10
-   1              5
-                    */
+        System.out.println("*****************************************************");
 
         System.out.println("Before Deleting element");
         binaryTree.inOrderPrint();
         binaryTree.remove(4);
         System.out.println("\nAfter Deleting element");
         binaryTree.inOrderPrint();
-        /* After Deleting
-                    6//root
-            3               9
-       2       5       7       10
-   1
-                    */
-        binaryTree.addElement(4);
-        /* After inserting 4
-                    6//root
-            3               9
-       2       5       7       10
-   1        4
-                    */
-        binaryTree.inOrderPrint();
 
+        System.out.println("*****************************************************");
+
+        binaryTree.displayTree();
+        binaryTree.addElement(4);
+        binaryTree.displayTree();
+        binaryTree.addElement(8);
+        binaryTree.displayTree();
         binaryTree.remove(6);
         System.out.println("After deleting Root");
-        binaryTree.inOrderPrint();
+        binaryTree.displayTree();
     }
 }

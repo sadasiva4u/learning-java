@@ -117,16 +117,31 @@ public class BinaryTreeImpl {
             if(null == current.left && null == current.right){
                 return null;
             }
-            // If the node have both children...
+            // If the node have both children... Anyone of the below approaches we can take
             //1. Find smallest from right of the node... assign that as node/root... rearrange the tree
             //2. Find largest from left of the node... assign that as node/root... rearrange the tree
+
+            /*
             else if(null != current.left && null != current.right){
                 int smallestNodeValueFromRight = findSmallestFromRight(current.right);
                 current.value = smallestNodeValueFromRight;
                 current.right = removeRecurssive(current.right,smallestNodeValueFromRight);
                 return current;
+            }*/
+            else if(null != current.left && null != current.right){
+                int largestNodeValueFromLeft = findLargestFromLeft(current.left);
+                current.value = largestNodeValueFromLeft;
+                current.left = removeRecurssive(current.left,largestNodeValueFromLeft);
+                return current;
             }
             // Return Left Node if it's not null... Otherwise return right node
+            /*
+                else if(null != current.left){
+                    return current.left;
+                }else if(null != current.right){
+                    return current.right;
+                }
+             */
             return (null!=current.left ? current.left : current.right);
 
         }else if(deleteElement < current.value){
@@ -140,17 +155,16 @@ public class BinaryTreeImpl {
     }
 
     private int findSmallestFromRight(Node findSmallest) {
-/*
-        if(null != findSmallest.left)
-            return smallestFromRight(findSmallest.left);
-        return findSmallest.value;
-*/
         return (null == findSmallest.left
                 ? findSmallest.value
                 : findSmallestFromRight(findSmallest.left));
-
     }
 
+    private int findLargestFromLeft(Node findLargest) {
+        return (null == findLargest.right
+                ? findLargest.value
+                : findLargestFromLeft(findLargest.right));
+    }
 
     public void displayTree()
     {
@@ -158,7 +172,7 @@ public class BinaryTreeImpl {
         globalStack.push(root);
         int emptyLeaf = 32;
         boolean isRowEmpty = false;
-        System.out.println("......................................................");
+        System.out.println("\n......................................................");
         while(!isRowEmpty)
         {
             Stack<Node> localStack = new Stack();
@@ -191,6 +205,13 @@ public class BinaryTreeImpl {
                 globalStack.push( localStack.pop() );
         }
         System.out.println("......................................................");
+    }
+
+    static int sumValues(Node current) {
+        if (current == null) {
+            return 0;
+        }
+        return current.value + sumValues(current.left) + sumValues(current.right);
     }
 }
 
