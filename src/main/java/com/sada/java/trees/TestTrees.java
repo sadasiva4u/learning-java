@@ -19,11 +19,17 @@ public class TestTrees {
 // Delete a element
 
         binaryTree.addElement(6);
+        binaryTree.displayTree();
         binaryTree.addElement(3);
+        binaryTree.displayTree();
         binaryTree.addElement(9);
+        binaryTree.displayTree();
         binaryTree.addElement(4);
+        binaryTree.displayTree();
         binaryTree.addElement(2);
+        binaryTree.displayTree();
         binaryTree.addElement(7);
+        binaryTree.displayTree();
         binaryTree.addElement(10);
         binaryTree.addElement(1);
         binaryTree.addElement(5);
