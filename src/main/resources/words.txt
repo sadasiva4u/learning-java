@@ -1,0 +1,6 @@
+This repository was created as part of onboarding to the Stream Processing Platform. Out of the box, it came provisioned with a jenkins file describing the build process which includes the following features:
+
+Pushing to Master will automatically release a version of your artifact
+Pushing to develop will automatically create a snapshot version of your artifact
+Pushing to any other branch will create a feature snapshot
+Pushing to master will run the checkmarx and IQ scans automatically in async mode.

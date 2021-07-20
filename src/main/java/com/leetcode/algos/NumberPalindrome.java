@@ -11,7 +11,7 @@ public class NumberPalindrome {
         int reversed  =0, reminder;
         while(num > 0){
             reminder = num %10;
-            reversed = reversed*10+reminder;
+            reversed = reversed * 10 + reminder;
             num /=10;
         }
 
